@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="purpleGlow" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Glassmorphism Overlay Gradient -->
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    @keyframes pulseGlow {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+      50% { transform: scale(1.08) translate(-10px, 15px); opacity: 0.7; }
+      100% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+    }
+    @keyframes floatParticle {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+      100% { transform: translateY(0px) rotate(360deg); }
+    }
+    @keyframes dashLine {
+      to { stroke-dashoffset: -60; }
+    }
+    @keyframes scanWave {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .orb-1 { animation: pulseGlow 8s ease-in-out infinite; transform-origin: center; }
+    .orb-2 { animation: pulseGlow 12s ease-in-out infinite reverse; transform-origin: center; }
+    .particle { animation: floatParticle 10s ease-in-out infinite; }
+    .flow-line { stroke-dasharray: 8 12; animation: dashLine 4s linear infinite; }
+    .title-text { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 800; fill: #ffffff; }
+    .subtitle-text { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 500; fill: #94a3b8; }
+    .pill-text { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 600; fill: #38bdf8; font-size: 13px; }
+  </style>
+
+  <!-- Background Layer -->
+  <rect width="1200" height="400" fill="url(#bgGrad)" rx="16" />
+
+  <!-- Animated Glowing Background Orbs -->
+  <circle class="orb-1" cx="200" cy="100" r="180" fill="url(#cyanGlow)" filter="blur(40px)" />
+  <circle class="orb-2" cx="1000" cy="300" r="220" fill="url(#purpleGlow)" filter="blur(50px)" />
+
+  <!-- Dynamic Network / Flow Graphics in Background -->
+  <g stroke="#38bdf8" stroke-opacity="0.25" stroke-width="1.5" fill="none">
+    <path class="flow-line" d="M 100 320 Q 300 240 500 320 T 900 280 T 1100 350" />
+    <path class="flow-line" d="M 50 80 Q 350 160 650 60 T 1050 120" stroke="#8b5cf6" />
+  </g>
+
+  <!-- Dynamic Floating Decorative Tech Pills (Positioned around borders) -->
+  <g class="particle">
+    <rect x="80" y="60" width="130" height="32" rx="16" fill="#1e293b" stroke="#0284c7" stroke-width="1.5" opacity="0.8" />
+    <text x="145" y="81" text-anchor="middle" class="pill-text">🔒 PAM &amp; JIT</text>
+  </g>
+
+  <g class="particle" style="animation-delay: -3s;">
+    <rect x="980" y="70" width="140" height="32" rx="16" fill="#1e293b" stroke="#a855f7" stroke-width="1.5" opacity="0.8" />
+    <text x="1050" y="91" text-anchor="middle" class="pill-text" fill="#c084fc">🛡️ Zero Trust</text>
+  </g>
+
+  <g class="particle" style="animation-delay: -5s;">
+    <rect x="950" y="310" width="160" height="32" rx="16" fill="#1e293b" stroke="#10b981" stroke-width="1.5" opacity="0.8" />
+    <text x="1030" y="331" text-anchor="middle" class="pill-text" fill="#34d399">📊 Audit Compliance</text>
+  </g>
+
+  <g class="particle" style="animation-delay: -2s;">
+    <rect x="70" y="310" width="150" height="32" rx="16" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" opacity="0.8" />
+    <text x="145" y="331" text-anchor="middle" class="pill-text" fill="#fbbf24">⚡ Open Source</text>
+  </g>
+
+  <!-- Central Glassmorphism Backdrop for Foreground Content -->
+  <rect x="180" y="100" width="840" height="200" rx="20" fill="url(#glassGrad)" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1.5" />
+
+  <!-- Foreground Title and Subtitle -->
+  <g text-anchor="middle">
+    <!-- Icon / Badge above title -->
+    <text x="600" y="145" font-size="28">🗄️ 🔐 🛡️</text>
+    
+    <!-- Main Title -->
+    <text x="600" y="195" font-size="40" class="title-text" letter-spacing="-0.5">
+      Awesome Database Access Management
+    </text>
+
+    <!-- Subtitle -->
+    <text x="600" y="235" font-size="18" class="subtitle-text">
+      Curated PAM Platforms, Just-in-Time Access, RBAC &amp; Audit Compliance Solutions
+    </text>
+
+    <!-- Tagline -->
+    <text x="600" y="270" font-size="14" font-weight="600" fill="#38bdf8" letter-spacing="1.5" font-family="system-ui, sans-serif">
+      SaaS &amp; OPEN-SOURCE ECOSYSTEM DIRECTORY
+    </text>
+  </g>
+</svg>
